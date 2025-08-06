@@ -1,0 +1,54 @@
+/* universal selector */
+
+* {
+    color:hotpink
+}
+
+body {
+      font-family: "Montserrat",sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+ 
+h1{
+    color: blueviolet;
+    font-size: 32px;
+    font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: bold;
+}
+
+h2 {
+    color: limegreen;
+}
+
+p {
+    /* font-weight: bold; */
+}
+
+.blue-color {
+    color: blue;
+}
+
+#purple-color, h3 {
+    color: purple;
+}
+
+section {
+    text-align: center;
+    border: 2px solid crimson;
+    margin-bottom: 20px;
+    background-color:rgba(215, 158, 137, 0.523)
+}
+
+h3 {
+    border: 1px dashed green
+}
+
+.Lobster {
+    font-family: "Lobster Two", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
