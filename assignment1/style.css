@@ -5,6 +5,7 @@
     box-sizing: border-box;
   }
   
+/* I also chose the Arial font for the body since it goes well with the Tahoma font and really encapsulates that schoolbook notes aesthetic. It's very easily readable as well and widely recognized. */
   body {
     font-family: "Arial", sans-serif;
     background: #fafafa;
@@ -129,3 +130,4 @@
     scroll-margin-top: 100px; /* prevents scroll from hiding under fixed header */
   }
   
+  .card { scroll-margin-top: 120px; }

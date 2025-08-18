@@ -4,13 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pinterest-Style Questions</title>
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="style.css" />
 <style>
 /* Reset */
-* { margin:0; padding:0; box-sizing:border-box; }
+
+/* This is the header. I chose the Tahoma font because I really like how it reminds me of the Apple app Notes. I want to make this site reminiscent of that since it's a school assignment, and as a student who uses Notes for all of my school notes, I thought it would be nice to incorporate this minimalism alongisde this thought. To evoke the nostalgic schoolwork feeling. */
+* {margin:0; padding:0; box-sizing:border-box; }
 body { font-family:"Segoe UI", Tahoma, sans-serif; background:#fafafa; color:#333; line-height:1.6; }
 html { scroll-behavior: smooth; }
 
-/* Top nav */
+/* This is the top navigation, I'm creating shadows within each section, heading, and navigation to showcase and highlight where each line ends, and create dimension. To make the site not too boring, yet also popping out, so not each section blends too much with one another, making navigation easier. */
 nav {
   position: fixed;
   top:0; left:0; width:100%;
@@ -22,9 +26,13 @@ nav {
   padding:0.75rem 2rem;
   z-index:1000;
 }
+
+/* This is the font and decoration settings for the navigation content. I chose color #333 because I think using plain black is too harsh, I really want it to evoke that natural nostalgic feeling of school notes, so I figured dark grey would look the best. It contrasts, yet does not look too harsh. */
 nav .left { flex:1; display:flex; align-items:center; gap:0.5rem; }
 nav .center { flex:2; text-align:center; }
 nav .right { flex:1; text-align:right; }
+
+/* This is the padding and decoration setting for Index. I made the padding so that it's not too far, nor too near "Home", and also included the border radius in order to make them both centered within the navigation bar. I had to add the transition background as well so that when you hover over it, the grey pop-up does not look too sudden, but gradual. So it feels natural. */
 nav a.home-btn {
   text-decoration:none;
   color:#333;
@@ -41,13 +49,16 @@ nav a.home-btn:hover { background: rgba(0,0,0,0.05); }
   font-weight:600;
   transition: background 0.2s, color 0.2s;
 }
+
 .index-btn:hover { background:#ddd !important; }
+
+/* These are the settings for the search button in the middle of the navigation bar. I wanted to find a way to incorporate and show which website I chose to investigate, but I wanted to show it in a natural way that wouldn't seem too out of the blue. Thus, while making the navigation bar, I wanted the "navigation" theme to follow suit, and what better way than to navigate to a site? By searching it up? */
 nav form {
   display:inline-flex;
 }
 nav input[type="text"] {
-  padding:0.4rem 0.8rem;
-  border:1px solid #ccc;
+  padding:0.4rem 1.7rem;
+  border:0px solid #ccc;
   border-radius:6px 0 0 6px;
   outline:none;
   min-width:200px;
@@ -63,7 +74,7 @@ nav button {
 }
 nav button:hover { background:#555; }
 
-/* Header */
+/* This is the header, and to reinforce the school notes aesthetic, I want to imitate that same exact. Thus, I included a title and headline, and added a line in between so that viewers can read it more easily.  */
 header {
   text-align:center;
   padding:6rem 2rem 2rem;
@@ -80,7 +91,7 @@ header h1 {
 }
 header p { color:#777; margin-bottom:1.5rem; }
 
-/* Pinterest-style grid using CSS columns */
+/* I decided to use a Pinterest-style grid using CSS columns, I think it's a really nice and neat way to arrange a lot of content. I also created the "Index" section so that the viewer can easily navigate to the next question if they get lost within the columns. Unfortunately, CSS doesn't seem to allow left to right columns, but I still think this is very cute and gives an authentic, raw, schoolish feel. It reminds me of Padlet especially, another app which I use alot for school. */
 .container {
   column-count:3;
   column-gap:1rem;
@@ -88,9 +99,12 @@ header p { color:#777; margin-bottom:1.5rem; }
   margin:3rem auto;
   padding:0 1rem;
 }
+
+/* These media queries make the Pinterest-style grid adapt to different screen sizes, ensuring it looks good on desktop, tablet, and mobile. */
 @media(max-width:1024px){ .container { column-count:2; } }
 @media(max-width:600px){ .container { column-count:1; } }
 
+/* These are the paddings, so that the columns wouldn't peak when they move upwards, as well as the shadows that follow suit when hovered. I wanted to increase the interactivity of the website instead of just making it a simple notepad, and the most simplest way was by having hover animations. It also looks like we're choosing cards while playing video games, an animation that I am really fond of.*/
 .card {
   display:inline-block; /* important for columns layout */
   width:100%;
@@ -102,6 +116,7 @@ header p { color:#777; margin-bottom:1.5rem; }
 }
 .card:hover { transform:translateY(-8px); box-shadow:0 12px 24px rgba(0,0,0,0.12); }
 
+/* The content paddings make the notepads more professional, similar to cards and Padlet, since they can breathe and look minimalistically compact, the aesthetic that I am planning to go for. */
 .card-inner {
   padding:1.5rem;
   opacity:0;
@@ -110,24 +125,11 @@ header p { color:#777; margin-bottom:1.5rem; }
 }
 @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
 
-.card-inner:nth-child(1){animation-delay:0.1s;}
-.card-inner:nth-child(2){animation-delay:0.2s;}
-.card-inner:nth-child(3){animation-delay:0.3s;}
-.card-inner:nth-child(4){animation-delay:0.4s;}
-.card-inner:nth-child(5){animation-delay:0.5s;}
-.card-inner:nth-child(6){animation-delay:0.6s;}
-.card-inner:nth-child(7){animation-delay:0.7s;}
-.card-inner:nth-child(8){animation-delay:0.8s;}
-.card-inner:nth-child(9){animation-delay:0.9s;}
-.card-inner:nth-child(10){animation-delay:1s;}
-.card-inner:nth-child(11){animation-delay:1.1s;}
-.card-inner:nth-child(12){animation-delay:1.2s;}
-.card-inner:nth-child(13){animation-delay:1.3s;}
-
+/* Here, I'm making the subheading slightly smaller in order to emphasize the hierarchy of content, and what the audience should focus more on: The heading. I also changed the color of the body to be slightly lighter than the title, a common technique to reinforce the hierarchy. */
 h2 { font-size:1.2rem; margin-bottom:0.5rem; color:#444; }
 p { font-size:0.95rem; color:#555; }
 
-/* CSS-only side panel */
+/* CSS-only side panel, this is so that pressing Index wouldn't make the viewer constantly scroll up to the top as well. */
 #toggleIndex { display:none; }
 .side-panel {
   position:fixed;
@@ -146,6 +148,7 @@ p { font-size:0.95rem; color:#555; }
   cursor:pointer;
   margin-bottom:1rem;
 }
+/* This is so that when the viewer hovers over the Index contents, an underline will appear. This reinforces and encourages them to click and interact with the element, and also reinforcing the book aesthetic, where it looks like you're choosing from an Ebook's Table of Contents, where each section is usually underlined, further reinforcing the nostalgic old-book theme. */
 .side-panel h2 { margin-bottom:1rem; }
 .side-panel ul { list-style:none; padding-left:0; }
 .side-panel ul li { margin:0.5rem 0; }
@@ -157,7 +160,7 @@ p { font-size:0.95rem; color:#555; }
 
 <input type="checkbox" id="toggleIndex">
 
-<!-- Top nav -->
+<!-- Top navigation -->
 <nav>
   <div class="left">
     <a href="#top" class="home-btn">Home</a>
@@ -165,14 +168,14 @@ p { font-size:0.95rem; color:#555; }
   </div>
   <div class="center">
     <form action="https://alannn.com/index" method="get" target="_blank">
-      <input type="text" name="q" placeholder="Search alannn.com/index...">
+      <input type="text" name="q" placeholder="Search alannn.com/index">
       <button type="submit">Go</button>
     </form>
   </div>
   <div class="right"></div>
 </nav>
 
-<!-- Side panel -->
+<!-- Side panel with links to each section -->
 <div class="side-panel">
   <label for="toggleIndex" class="close-btn">×</label>
   <h2>Index</h2>
@@ -198,6 +201,7 @@ p { font-size:0.95rem; color:#555; }
   <p>Interactive Experience Research Project s4129035</p>
 </header>
 
+<!-- Each card -->
 <div class="container">
   <div class="card"><div class="card-inner" id="q1"><h2>
     (1) What was the first thing you paid attention to when interacting with the experience?</h2><p style="text-align: justify;">The first thing I noticed when I began interacting with the website was the buzzing fly that acted as the cursor. Its constant motion immediately drew my attention and added a playful, engaging quality to the experience. I was also drawn to the power button positioned in the center of the large icon. The neon color contrasted sharply against the monochromatic colour palette and expanded when I hovered over it, clearly signaling that it was interactive. This combination of motion and visual emphasis made the initial interaction interactive and fun.
