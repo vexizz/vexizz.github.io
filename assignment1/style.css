@@ -1,0 +1,131 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Arial", sans-serif;
+    background: #fafafa;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Section layout */
+  .section {
+    min-height: 100vh; /* each section fills screen */
+    padding: 60px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .section h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    color: #222;
+  }
+  
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  
+  /* Card style */
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  }
+  
+  .card h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #444;
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .section {
+      padding: 40px 20px;
+    }
+  
+    .section h1 {
+      font-size: 26px;
+    }
+  }
+  
+  .grid-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* smooth animation */
+  }
+  
+  .card:hover {
+    transform: translateY(-8px); /* lifts the card */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12); /* stronger shadow */
+  }
+  
+/* Side panel hidden by default */
+.side-panel {
+    position: fixed;
+    top: 0; left: -300px; /* hide off-screen */
+    width: 250px; height: 100%;
+    background: #fff;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.2);
+    padding: 2rem 1rem;
+    transition: left 0.4s ease;
+    z-index: 1500;
+  }
+  
+  /* Show when checkbox is checked */
+  #toggleIndex:checked ~ .side-panel {
+    left: 0;
+  }
+  
+  /* Close button */
+  .side-panel .close-btn {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+
+/* Add this to your CSS */
+.card {
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-margin-top: 100px; /* prevents scroll from hiding under fixed header */
+  }
+  
