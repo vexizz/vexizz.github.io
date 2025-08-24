@@ -29,8 +29,8 @@ nav {
 
 /* This is the font and decoration settings for the navigation content. I chose color #333 because I think using plain black is too harsh, I really want it to evoke that natural nostalgic feeling of school notes, so I figured dark grey would look the best. It contrasts, yet does not look too harsh. */
 nav .left { flex:1; display:flex; align-items:center; gap:0.5rem; }
-nav .center { flex:2; text-align:center; }
-nav .right { flex:1; text-align:right; }
+nav .center { position:absolute; left:50%; transform:translateX(-50%) }
+nav .right { flex:1; }
 
 /* This is the padding and decoration setting for Index. I made the padding so that it's not too far, nor too near "Home", and also included the border radius in order to make them both centered within the navigation bar. I had to add the transition background as well so that when you hover over it, the grey pop-up does not look too sudden, but gradual. So it feels natural. */
 nav a.home-btn {
