@@ -29,7 +29,7 @@ nav {
 
 /* This is the font and decoration settings for the navigation content. I chose color #333 because I think using plain black is too harsh, I really want it to evoke that natural nostalgic feeling of school notes, so I figured dark grey would look the best. It contrasts, yet does not look too harsh. */
 nav .left { flex:1; display:flex; align-items:center; gap:0.5rem; }
-nav .center { position:absolute; left:50%; transform:translateX(-50%) }
+nav .center { position:absolute; left:50%; transform:translateX(-50%); display: flex; align-items:center; }
 nav .right { flex:1; }
 
 /* This is the padding and decoration setting for Index. I made the padding so that it's not too far, nor too near "Home", and also included the border radius in order to make them both centered within the navigation bar. I had to add the transition background as well so that when you hover over it, the grey pop-up does not look too sudden, but gradual. So it feels natural. */
@@ -166,8 +166,9 @@ p { font-size:0.95rem; color:#555; }
     <a href="#top" class="home-btn">Home</a>
     <label for="toggleIndex" class="index-btn">Index</label>
   </div>
+
   <div class="center">
-    <form action="https://alannn.com/index" method="get" target="_blank">
+    <form action="https://alannn.com/index" method="get" target="_blank" class="search-form">
       <input type="text" name="q" placeholder="Search alannn.com/index">
       <button type="submit">Go</button>
     </form>

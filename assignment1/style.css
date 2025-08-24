@@ -131,3 +131,49 @@
   }
   
   .card { scroll-margin-top: 120px; }
+
+  nav .center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+
+nav .search-form {
+  display: flex;
+  align-items: center;
+  max-width: 250px;
+}
+
+nav .search-form input[type="text"] {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+  flex: 1;
+}
+
+nav .search-form button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+nav .search-form button:hover {
+  background: #555;
+}
+
+/* Make sure it doesn’t overflow on iPhone */
+@media (max-width: 600px) {
+  nav .search-form {
+    max-width: 180px;
+  }
+  nav .search-form input[type="text"] {
+    font-size: 14px;
+  }
+}
