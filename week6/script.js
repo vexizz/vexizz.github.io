@@ -6,6 +6,7 @@ const firstPara = document.querySelector("p");
 console.log(firstPara);
 console.log(firstPara.textContent);
 firstPara.textContent = "This is my new para";
+firstPara.innerHTML += "<span> New element </span>"
 
 const h2Heading = document.querySelector("second-heading");
 console.log(h2Heading);
@@ -34,3 +35,4 @@ function toggleMe()
     console.log(myImg);
     myImg.classList.toggle("round");
 }
+
