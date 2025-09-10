@@ -31,6 +31,8 @@ console.log(popSound);
 
 // I need to access the button and lsiten to clicks on it 
 // so whenever someone clicks on that button, we hear a popping sound.
+
+
 const popButton = document.querySelector("pop-button");
 console.log(popButton);
 
@@ -38,4 +40,15 @@ popButton.addEventListener("click", popAudio);
 
 function popAudio() {
     popSound.play();
+}
+
+const myVideo = document.querySelector("#my-video");
+console.log(myVideo);
+
+function playAudio() {
+    myVideo.play();
+}
+
+function pauseAudio() {
+    myVideo.pause();
 }
