@@ -257,6 +257,7 @@ footer {
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #fff;
+  min-width: 30vh;
   max-height: 96.2vh;      /* sets the maximum height */
   overflow-y: auto;       /* enables vertical scroll if content is taller */
 }
