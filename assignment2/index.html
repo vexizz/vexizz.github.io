@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- add the font family of your choice -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100..900;1,100..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <h1>Music Video Player Website</h1>
+    </header>
+    <!-- Navigation Section -->
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Playlists</a></li>
+        <!-- Add or remove navigation items as needed -->
+      </ul>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main class="container">
+      <!-- Media Player Section -->
+      <div class="media-player">
+        <video id="custom-video-player" controls>
+          <source
+            src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="video-time-overlay">
+    <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
+  </div>
+        <div class="custom-controls">
+          <button id="play-pause-btn" onclick="togglePlayPause()">
+            <img
+              id="play-pause-img"
+              src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
+              alt="Play Button"
+            />
+          </button>
+          <!-- add the missing buttons or functionality here -->
+          <button id="mute-unmute-btn" onclick="toggleAudio()">
+            <img
+              id="mute-unmute-img"
+              src="https://img.icons8.com/ios-glyphs/30/no-audio--v1.png"
+              alt="Mute Button"
+            />
+         <button id="fast-forward-btn" onclick="SpeedUp()">
+            <img
+             id="fast-forward-img"
+             src="https://img.icons8.com/ios-glyphs/30/fast-forward.png"
+             alt=""
+          />
+          </button>
+          <button id="step1-button" >Thumbnail</button>
+          <button id="step2-button" >Most Replayed</button>
+           <div class="progress-container"></div>
+          <div class="progress-bar">
+            <span id="progress-bar-fill"></span>
+          </div>
+          </button>
+          <button id="fullscreen-button" onclick="FullScreen()">
+            <img
+              id="fullscreen-img"
+              src="https://img.icons8.com/ios-glyphs/30/full-screen--v1.png"
+              alt=""
+            />
+        </button>
+        <button id="heart-button" >
+          <img
+            src="https://img.icons8.com/?size=36&id=DFU1kReSUccu&format=png&color=000000"
+            alt=""
+            id="fullscreen-img"
+          />
+        </button>
+        <div id="likes"></div>
+        </div>
+        <!-- Additional Content Section -->
+        <!-- Comment Section -->
+        <div class="comment-section">
+          <h3>Comments</h3>
+          <div id="comments"></div>
+          <div class="new-comment">
+            <input type="text" id="comment-input" placeholder="Add a comment">
+            <button onclick="addComment()">Post</button>
+          </div>
+      </div>
+    </div>
+    
+<!-- Right column: New section + Recommendations -->
+<div class="right-column">
+  <!-- New Section above recommendations -->
+  <div class="new-section">
+    <h3> <img src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="icon">
+        Artist's Name...</h3>
+    <p>About the musician or artist's summarized biography.</p>
+  </div>
+
+    <!-- Recommendations -->
+<div class="description">
+    <h3>Description </h3>
+    <p>Music video description and date posted.</p>
+    </div>
+
+<div class="recommendations">
+    <h3>Links</h3>
+    <ul>
+      <li><a href="https://spotify.com" target="_blank">Spotify</a></li>
+      <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+      <li><li><a href="https://soundcloud.com" target="_blank">SoundCloud</a></li>
+     </ul>
+    </div>
+
+<div class="lyrics">
+  <h2>Lyrics</h2>
+  <p>Here you can put the song lyrics, and it scrolls when it's too long! This lets users be able to choose whether they want to look at their recommended feed or read the lyrics. I've always wanted this feature since I often want to read lyrics while browsing, so since YouTube nor Spotify will let me do this, I'll do it myself !! You can scroooooooooooooooooooolll down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down.</p>
+</div>
+
+</div>
+<div class="video-feed">
+  <h2>Recommended </h2>
+
+  <div class="video-item">
+    <div class="thumbnail">
+      <div class="play-btn">&#9658;</div>
+      <span class="duration">5:12</span>
+    </div>
+    <p class="video-title">Video 1</p>
+    <div class="video-info">
+      <span class="channel-name">Channel 1</span> 
+      <span class="meta">1.2M views • 2 days ago</span>
+    </div>
+  </div>
+
+  <div class="video-item">
+    <div class="thumbnail">
+      <div class="play-btn">&#9658;</div>
+      <span class="duration">3:45</span>
+    </div>
+    <p class="video-title">Video 2</p>
+    <div class="video-info">
+      <span class="channel-name">Channel 2</span> 
+      <span class="meta">890K views • 1 week ago</span>
+    </div>
+  </div>
+
+  <div class="video-item">
+    <div class="thumbnail">
+      <div class="play-btn">&#9658;</div>
+      <span class="duration">4:20</span>
+    </div>
+    <p class="video-title">Video 3</p>
+    <div class="video-info">
+      <span class="channel-name">Channel 3</span>  
+      <span class="meta">500K views • 3 days ago</span>
+    </div>
+  </div>
+</div>
+
+
+  </main>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 Media Player Website. All rights reserved.</p>
+      <a href="https://icons8.com/icon/59862/play">Play</a> icon by
+      <a href="https://icons8.com">Icons8</a>
+      <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
+      <a href="https://icons8.com">Icons8</a>
+    </footer>    
+  </body>
+</html>
