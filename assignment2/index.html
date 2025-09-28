@@ -41,6 +41,7 @@
             type="video/mp4"
           />
         </video>
+        <!-- Video Time Overlay so that viewers can see which part of the video they're at. I put it inside the video so not to take up a lot of space and not look too eye-catching since it is just a small detail. I think every media player, especially music video's should have this, so a person can comment on which part is their favourite, and etc. -->
         <div class="video-time-overlay">
     <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
   </div>
@@ -52,13 +53,14 @@
               alt="Play Button"
             />
           </button>
-          <!-- add the missing buttons or functionality here -->
+          <!-- Mute and Unmute Button so that viewers can choose whether to listen to the music, or if they just want to see how the visuals look. -->
           <button id="mute-unmute-btn" onclick="toggleAudio()">
             <img
               id="mute-unmute-img"
               src="https://img.icons8.com/ios-glyphs/30/no-audio--v1.png"
               alt="Mute Button"
             />
+            <!-- Fast Forward Button; I think this is really useful especially for the younger audience nowadays who have short attention span, as well as those who like sped up music such as myself. -->
          <button id="fast-forward-btn" onclick="SpeedUp()">
             <img
              id="fast-forward-img"
@@ -66,13 +68,17 @@
              alt=""
           />
           </button>
+          <!-- Button to go to the video frame with the thumbnail. Many people such as myself tend to click and check out random music videos because of their catchy thumbnails, then have to watch through 10 whole minutes just to finally find it. I think this feature would save us so much time and effort. YouTube needs this. -->
           <button id="step1-button" >Thumbnail</button>
+          <!-- Button for which part was the most replayed. I think this is really good for once again, the younger audience who have short attention spans, and when they click on a music video, tend to not stick around long enough until the good (usually the chorus or bridge) part comes. With this, they can quickly press the button and jump ahead, before judging if they want to stick around for the full video or not. It helps both musician and viewers alike, helping better chance of viewership (since most views count after 30 seconds to fight off bots) as well as easier judgement in music/visuals. -->
           <button id="step2-button" >Most Replayed</button>
+          <!-- Progress Bar for viewers to see which part they're at, and coupled with the Video Time Overlay, how much longer the video is. It also helps them decide if "There's still a long way to go, maybe there's something good later on!" or "It's almost about to end and there's nothing. I might as well save 10 more seconds of my life." -->
            <div class="progress-container"></div>
           <div class="progress-bar">
             <span id="progress-bar-fill"></span>
           </div>
           </button>
+          <!-- FullScreen Button-->
           <button id="fullscreen-button" onclick="FullScreen()">
             <img
               id="fullscreen-img"
@@ -80,6 +86,7 @@
               alt=""
             />
         </button>
+        <!-- Heart Button to send likes to your favourite creator and show support!! -->
         <button id="heart-button" >
           <img
             src="https://img.icons8.com/?size=36&id=DFU1kReSUccu&format=png&color=000000"
@@ -89,33 +96,35 @@
         </button>
         <div id="likes"></div>
         </div>
-        <!-- Additional Content Section -->
-        <!-- Comment Section -->
+        <!-- Comment Section to also send more support!! You can also have discussions on your interpretations on the music video as well with fellow fans or even the musician themself, and helps create a strong community and fanbase!! My chosen feature is the comment section. Including a comment section provides users with a  familiar interaction model inspired by YouTube, where audiences can engage with the content and each other. This decision was influenced by the context of designing not just a "player," but an interactive platform that emphasizes community and user voice. It also functions as feedback: creators gain insights into how their media is received. In UX terms, this promotes participatory culture (Jenkins, 2006), where audiences move beyond consumption to contribution.  --> 
         <div class="comment-section">
           <h3>Comments</h3>
           <div id="comments"></div>
           <div class="new-comment">
+            <!-- Design Choice: A simple input field with placeholder text ("Add a comment") creates clarity and familiarity for users. The decision to use rounded corners and internal padding mirrors modern UI trends (inspired by Google Material Design), which support readability and reduce cognitive load. Padding inside ensures text doesn't feel cramped, making the input approachable and human-centered. -->
             <input type="text" id="comment-input" placeholder="Add a comment">
+            <!-- The 'Post' button is deliberately styled underneah the video with just as large as its size, as well as some hover feedback. This provides immediate visual feedback, which is essential in usability and its large size and placement according to the rule of thirds in UX/UI immediately grabs for attention. Nielsen’s usability heuristics (1994) highlight that visibility of system status is critical. Hover effects let the user know their interaction is being registered. -->
             <button onclick="addComment()">Post</button>
           </div>
       </div>
     </div>
     
-<!-- Right column: New section + Recommendations -->
+<!-- Right column: Description + Recommendations -->
 <div class="right-column">
-  <!-- New Section above recommendations -->
+  <!-- Artist Name and Biography so viewers can see and learn about them if the music video was interesting. -->
   <div class="new-section">
     <h3> <img src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="icon">
         Artist's Name...</h3>
     <p>About the musician or artist's summarized biography.</p>
   </div>
 
-    <!-- Recommendations -->
+    <!-- Video description that the artist put out himself, or messages he would like to convey to his fans, along with the date posted. A bunch of music fans tend to celebrate certain music videos' release anniversaries, making these dates also really important. Many artists as well like to hide easter eggs or deeper meanings behind their videos, so these descriptions are also the perfect way for them to add so! Or they can just say thanks to their fans :> -->
 <div class="description">
     <h3>Description </h3>
     <p>Music video description and date posted.</p>
     </div>
 
+<!-- Links to the artist's other socials, including Spotify, YouTube and SoundCloud. Fans can learn more about their socials through here and show their support across various different platforms. Those new and have only watched this one music video of theirs may also be interested and will be able to find out more about their work. -->    
 <div class="recommendations">
     <h3>Links</h3>
     <ul>
@@ -125,17 +134,19 @@
      </ul>
     </div>
 
+<!-- Lyrics to the music video!! -->
 <div class="lyrics">
   <h2>Lyrics</h2>
   <p>Here you can put the song lyrics, and it scrolls when it's too long! This lets users be able to choose whether they want to look at their recommended feed or read the lyrics. I've always wanted this feature since I often want to read lyrics while browsing, so since YouTube nor Spotify will let me do this, I'll do it myself !! You can scroooooooooooooooooooolll down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down down.</p>
 </div>
 
+<!-- Added in an extra /div here to create a new section, and this new section is the video feed!! You get recommended similar music videos or others of the same artist through here. -->
 </div>
 <div class="video-feed">
   <h2>Recommended </h2>
-
   <div class="video-item">
     <div class="thumbnail">
+        <!-- The video information, including the duration, title, channel name and date posted, etc. These are all important factors to whether a person will want to watch that music video or not; Many people tend to not like either too short or too long music, the title may also be in a cryptic format which will intrigue viewers, and a video that was just posted recently but has already garnered a lot of views will intrigue viewers into questioning why it is so popular, and will click on it. -->
       <div class="play-btn">&#9658;</div>
       <span class="duration">5:12</span>
     </div>
@@ -171,7 +182,6 @@
   </div>
 </div>
 
-
   </main>
 
     <!-- Footer Section -->
@@ -180,7 +190,8 @@
       <a href="https://icons8.com/icon/59862/play">Play</a> icon by
       <a href="https://icons8.com">Icons8</a>
       <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
-      <a href="https://icons8.com">Icons8</a>
+      <a href="https://icons8.com">Icons8;</a>
+      All icons by Icons8.
     </footer>    
   </body>
 </html>

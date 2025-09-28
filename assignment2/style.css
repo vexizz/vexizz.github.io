@@ -2,8 +2,8 @@
   --primary-bg-color: #f4f4f4;
   --text-color: #333;
   --main-bg-color: #333;
-  --main-text-color: #fff;
-  --main-btn-bg-color: #938989;
+  --main-text-color: #ffffff;
+  --main-btn-bg-color: #ffeded;
 }
 
 body,
@@ -30,10 +30,10 @@ body {
 /* Create a container for the main content */
 .container {
   justify-content: flex-start;
-  display: flex;
+  display: flex; /* for a desktop format, i think a flex display would be more appropriate and helps interactions much more easier due to being able to fit in a lot more. */
   max-width: 1000px;
-  width: 100vw;
-  max-width: 100%; /* never exceeds container */
+  width: 100vw; /* the main point of this is a media (music video) player, so the video should be the largest, and the biggest focal point here. */
+  max-width: 100%; /* never exceeds container. */
   height: auto;
   gap: 20px;
   align-items: flex-start;
@@ -44,14 +44,14 @@ body {
 header {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
-  padding: 10px 0;
+  padding: 13px 0;
   text-align: center;
   width: 100%;
 }
 
 /* Navigation styling */
 nav {
-  margin-top: 5px;
+  margin-top: 7px;
   text-align: center;
   padding: 5px 0;
 }
@@ -67,13 +67,21 @@ nav ul li {
   margin-right: 20px;
 }
 
+nav ul li a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px; /* Thinner underline to not make it feel too heavy */
+  text-underline-offset: 3px;     /* Adds a little spacing from the text so it doesn't seem unnatural and claustrophobic. */
+}
+
+/* Getting rid of the colour!! I think the layout/colour scheme of the player shouldn't be too colourful nor bright to keep the main focus on the video!! The golden rule of three colours in a colour palette always works best.*/
 nav a {
   text-decoration: none;
   color: var(--text-color);
 }
 
+/* Highlight on hover to make it seem more clickable and interactable! */
 a:hover {
-  text-decoration: underline; /* underline on hover */
+  background-color: rgba(102, 102, 102, 0.25);
 }
 
 /* Media player styling */
@@ -87,36 +95,36 @@ a:hover {
   width: auto;
   height: auto;
   padding: 1px;
-  border-radius: 10px;
+  border-radius: 10px; /* Rounding the borders to make it seem more soft and aesthetic. */
 }
 
 .custom-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 10px;
+  gap: 0.5rem; /* Spacing between the control buttons to make it seem more neat and breathable. */
+  margin-top: 10px; /* Spacing between the control buttons and the video for more neat arrangement and breathability! */
   width: 100%;
 }
 
 .custom-controls button {
-  background-color: var(--main-btn-bg-color);
-  color: var(--main-text-color);
-  border: none;
+  background-color: floralwhite;
+  border: 1.6px solid #575757;
+  border-radius: 6px;     /* Rounding the corners to make it look more softer and aesthetic. */
   padding: 0.5em 1em;
-  cursor: pointer;
-  font-size: 0.6rem;
+  cursor: pointer; /* To make it more interactable! */
+  font-size: 0.6rem; /* I used rem here to try and make the text the same size as the icons throughout every desktop/websize. */
   display: flex;
   white-space: nowrap;
   align-items: center;
   border-radius: 10px;
   gap: 0.1em;
   min-height: 3em;
+  background-color: var(--main-btn-bg-color); /* Cute colour to add some personality to the website, full explanation is tied alongside with the choice of colour for the links later on. */
 }
 
 .custom-controls button img {
   min-width: 1.5em;      /* scales with button text */
-  
   height: auto;
 }
 
@@ -124,7 +132,7 @@ a:hover {
   width: 100%;
   height: 15px;
   background-color: #ddd;
-  cursor: pointer;
+  cursor: pointer; /* The cursor turning into a pointer is to help show the user that they can interact with the progress bar, and that they can drag it to skip to different parts of the video, which will be useful especially to those who want to get to the good part of the music video, or want to go to a certain part.*/
   position: relative;
   border-radius: 7px;
   margin-top: 3px;
@@ -145,17 +153,18 @@ a:hover {
   content: '';
   position: absolute;
   top: 50%;
-  left: 100%;           /* at the end of the fill */
+  left: 100%;           /* At the end of the fill. */
   transform: translate(-50%, -50%);
   width: 15px;
   height: 15px;
   background-color: white;
-  border: 2px solid var(--main-bg-color); /* match fill color or contrast */
+  border: 2px solid var(--main-bg-color); 
   border-radius: 50%;
-  pointer-events: none;  /* so dragging/clicking still works */
+  pointer-events: none;  /* So dragging/clicking still works. */
   box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
+/* Changing the text colour of my buttons to black so that they will match the icons. */
 #step1-button {
   color: black;
 }
@@ -176,7 +185,7 @@ footer {
 
 /* Comment section styling */
 .comment-section {
-  border-radius: 12px;
+  border-radius: 12px; /* Rounding edges to suit the aesthetic. */
   display: flex;
   flex: 1; /* smaller than video */
   border: 2px solid #ccc;
@@ -186,41 +195,60 @@ footer {
   height: 200px;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
-  overflow: hidden;
+  background-color: #ffffff;
+  overflow: hidden; /* Hiding the overflow so that later on, I can add in overflow-y which is the scrolling feature; I did this so that the comment section wouldn't take up a lot of the space and end up in the website being endlessly vertically long if there are a lot of comments. */
   max-height: 200px;
-  overflow-y: auto;
+  overflow-y: auto; /* Allows vertical scrolling when there are too many comments, allowing a neater design for the site while still allowing lots of freedom.*/
 }
 
 .comment-section h3 {
-  border-bottom: 2px solid var(--main-bg-color); /* change color as needed */
-  padding-bottom: 5px; /* space between text and underline */
+  border-bottom: 2px solid var(--main-bg-color); /* An underline underneath the heading so that it effectively declares that THIS is the comment section. */
+  padding-bottom: 5px; /* Space between text and underline */
 }
 
 #comments {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: auto; /* The scrollbar*/
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
-  padding-right: 5px; /* small padding for scrollbar */
+  padding-right: 5px; /* Small padding for scrollbar */
 }
 
 .new-comment {
   display: flex;
+  gap: 0; /* Removes the gap between input and button, so that I can round their edges without leaving a missing hole. */
 }
 
 .new-comment input {
   flex: 1;
   padding: 5px;
-  border: 1px solid #ccc;
+  border-right: none; /* Removes the right border so it connects to the button. */
+  border-radius: 8px 0 0 8px; /* Rounds only top-left and bottom-left corners. */   
 }
 
 .new-comment button {
   padding: 5px 10px;
-  background-color: var(--main-btn-bg-color);
-  color: var(--main-text-color);
-  border: none;
+  background-color: var(--main-btn-bg-color); /* Colour of the post button. */
+  color:#161616;
+  border-left: none; /* Removes the left border so it connects to the input. */
+  border-radius: 0 8px 8px 0; /* Rounds only top-right and bottom-right corners. */
   cursor: pointer;
+}
+
+#comment-input {
+  border: 1px solid #ccc;
+  border-right: none;   /* Removes border on the right. */
+  border-radius: 8px 0 0 8px; /* Curves only left side. */
+  padding-left: 15px;
+  background-color: #f9f9f9;
+}
+
+.new-comment button {
+  border: 1px solid #ccc;
+  border-left: 1px solid #999; /* Thicker border between box and button. */
+  border-radius: 0 8px 8px 0; /* Curves only right side. */
+  background-color: whitesmoke;
+  padding: 5px 12px;
 }
 
 .comment {
@@ -238,11 +266,10 @@ footer {
   font-size: 0.85rem;
 }
 
-
 .recommendations {
   display: flex;
   flex-direction: column;
-  flex: 1;                 /* smaller than video-comments */
+  flex: 1;                 /* Smaller than video-comments and video volumns, since THOSE are the bigger focus and thus, the other columns should be smaller. */
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #fff;
@@ -251,69 +278,70 @@ footer {
 .right-column {
   display: flex;
   border-radius: 12px;
-  flex-direction: column; /* stack children vertically */
+  flex-direction: column; /* Stacks the children vertically. */
   gap: 10px;
-  flex: 1; /* same width as previous recommendations column */
+  flex: 1; /* Same width as previous column. */
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #fff;
   min-width: 30vh;
-  max-height: 96.2vh;      /* sets the maximum height */
-  overflow-y: auto;       /* enables vertical scroll if content is taller */
+  max-height: 96.2vh;      /* Sets the maximum height. */
+  overflow-y: auto;       /* Enables vertical scroll if content is taller, so that the content isn't messy and viewers can multitask without feeling too overwhelmed. */
 }
 
 .recommendations h3 {
-  margin-bottom: 8px; /* space below the heading */
+  margin-bottom: 8px; /* Space below the heading. */
 }
 
 .recommendations ul {
-  list-style: none;   /* removes bullets */
-  padding: 0;         /* remove default padding */
-  margin: 0;          /* remove default margin */
+  list-style: none;   /* Removes bullets. */
+  padding: 0;         /* Removes default padding. */
+  margin: 0;          /* Removes default margin. */
 }
 
 .recommendations ul li {
-  margin-bottom: 8px; /* space between each video */
+  margin-bottom: 8px; /* Space between each video. */
 }
 
 button:hover {
   scale: 0.9;
-  background-color: rgba(250, 235, 215, 0.25);
+  background-color: rgba(255, 0, 51, 0.25);
 }
 
+/* Mobile/Smaller Screen Styling */
 @media (max-width: 768px) {
   .custom-controls {
-    gap: 0.1rem; /* even smaller gap on phones */
+    gap: 0.1rem; /* Even smaller gap on phones */
   }
 }
 
 @media (max-width: 768px) {
   .recommendations {
-    flex: 0 0 150px;  /* shrink width to 150px */
-    max-width: 150px; /* ensure it doesn’t grow larger */
+    flex: 0 0 150px;  /* Shrink width to 150px since the original size was too large. */
+    max-width: 150px; /* To ensure it doesn’t grow larger and stays constant. */
     padding: 8px;
-    font-size: 14px;  /* optional: make text smaller */
+    font-size: 14px;  /* Also make the text smaller. */
   }
 }
 
 @media (max-width: 768px) {
   .progress-bar span::after {
-    width: 15px;
+    width: 15px; /*So that the progress bar can scale properly, be dragged properly, and not overflow on smaller screens since it was originally very long. */
     height: 15px;
     border: 1.5px solid var(--main-bg-color);
   }
 }
 
-/* Make everything vertical on small screens */
-@media (max-width: 768px) { /* or another breakpoint you prefer */
+/* Make everything vertical on small screens, so that everything is easily accessible and just scrollable. If it's in horizontal columns like on desktop, the control buttons would be too small to click, unreadable and thus not ncie to use.*/
+@media (max-width: 768px) { 
   main.container {
-    flex-direction: column; /* stack all sections vertically */
-    align-items: stretch;   /* make sections full width */
+    flex-direction: column; /* Stack all sections vertically. */
+    align-items: stretch;   /* Make sections full width so that nothing is too compressed. */
   }
 
 }
 
-  /* Optional: make media player, comments, recommendations full width */
+  /* Also make media player, comments, recommendations full width so that they are more accessible and comfortable on the eyes of phone users. */
   .media-player,
   .comment-section,
   .recommendations,
@@ -324,19 +352,19 @@ button:hover {
 
 @media (max-width: 768px) {
   .recommendations {
-    flex: none;      /* stop flex shrinking */
-    width: 100%;     /* make it full width */
-    max-width: none; /* remove any previous max-width */
+    flex: none;      
+    width: 100%;     /* Make it full width. */
+    max-width: none; /* In order to that, we must first remove any previous max-width. */
   }
 }
 
 @media (max-width: 768px) {
   nav {
-    margin-top: 5px; /* smaller margin for mobile */
+    margin-top: 5px; /* Smaller margin for mobile to be careful the contents don't overflow or look too messy. */
   }
 
   nav ul li {
-    margin-right: 10px; /* tighten spacing between links */
+    margin-right: 10px; /* Tighten spacing between links. */
   }
 
 }
@@ -344,14 +372,14 @@ button:hover {
 @media (max-width:768px) {
   .right-column {
   display: flex;
-  flex-direction: column; /* stack children vertically */
+  flex-direction: column; /* Stack children vertically on smaller screens. */
   gap: 10px;
-  flex: 1; /* same width as previous recommendations column */
+  flex: 1; /* Same width as previous recommendations columns so it would feel consistent and more pleasing to the eye. */
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #fff;
-  max-height: 200px;      /* sets the maximum height */
-  overflow-y: auto;       /* enables vertical scroll if content is taller */
+  max-height: 200px;      /* Sets the maximum height. */
+  overflow-y: auto;       /* Enables vertical scroll if content is taller, keeping everything organized and also giving viewers the freedom to choose whether they want to read the lyrics, comment, or browse. */
 }
 
 }
@@ -359,7 +387,7 @@ button:hover {
 .right-column h3 {
   display: flex;
   align-items: center;
-  gap: 8px; /* spacing between icon and text */
+  gap: 8px; /* Spacing between icon and text. */
   font-size: 18px;
 }
 
@@ -369,10 +397,10 @@ button:hover {
 }
 
 .lyrics {
-  margin-top: 10px;   /* spacing from previous section */
+  margin-top: 10px;   /* Spacing from previous sections. */
   padding: 10px;
-  border: 1px solid #ccc; /* optional, for visual separation */
-  background-color: #fff; /* optional */
+  border: 1px solid #ccc; /* For visual separations and neater arrangement. */
+  background-color: #fff; 
 }
 
 .lyrics h2 {
@@ -391,11 +419,11 @@ button:hover {
   overflow-y: auto;
   box-sizing: border-box;
 
-    /* Add padding inside the scrollable area */
-  padding-top: 0;      /* no padding at top, so heading stays put */
-  padding-left: 0px;  /* space from left edge */
-  padding-right: 15px; /* space from right edge */
-  padding-bottom: 10px; /* optional spacing at bottom */
+/* Add padding inside the scrollable area. It's also pretty small in order to help viewers keep their focus on the main video instead, since THAT is the biggest focal point and where their attention should be. */
+  padding-top: 0;      /* No padding at top, so heading stays put. */
+  padding-left: 0px;  /* Space from left edge. */
+  padding-right: 15px; /* Space from right edge. */
+  padding-bottom: 10px; 
   box-sizing: border-box; 
 
 }
@@ -418,7 +446,7 @@ button:hover {
   position: relative;
   background-color: #ddd;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 ratio */
+  padding-top: 56.25%; /* The usual 16:9 ratio that most viewers are familiar with and music videos are shot in. */
   cursor: pointer;
 }
 
@@ -438,38 +466,38 @@ button:hover {
   font-weight: bold;
 }
 
-/* Mobile responsiveness for video feed */
+/* Mobile responsiveness for the video feed. */
 @media (max-width: 768px) {
   .video-feed {
-    max-width: 100%;            /* override previous max-width */
-    width: 100%;                /* stretch to full container width */
-    padding: 0 5px 5px 5px;     /* small side padding for mobile */
-    gap: 10px;                   /* slightly smaller gap between videos */
-    box-sizing: border-box;      /* include padding in width */
+    max-width: 100%;            /* Overrides the previous max-width so we can stretch it to the full container width since it'll be scrolled vertically instead of being just another small section.*/
+    width: 100%;                
+    padding: 0 5px 5px 5px;     /* Small side padding for mobile, so it doesn't feel too claustrophobic. */
+    gap: 10px;                   /* Slightly smaller gap between videos. */
+    box-sizing: border-box;      /* Includes padding in width */
     overflow-y: visible;
 }
 
   .video-feed h2 {
-    font-size: 1.3rem;           /* slightly smaller heading */
-    padding-left: 5px;           /* align heading with videos */
+    font-size: 1.3rem;           /* Slightly smaller heading to match with the tiny scale of phones. */
+    padding-left: 5px;           /* Align heading with videos according to the smaller screen size. */
     margin-bottom: 6px;
   }
 
   .video-item {
-    border-radius: 6px;          /* slightly smaller corners */
+    border-radius: 6px;          /* Slightly smaller corners. */
   }
 
   .thumbnail {
-    padding-top: 56.25%;         /* keeps 16:9 aspect ratio */
+    padding-top: 56.25%;         /* Keeps 16:9 aspect ratio */
   }
 
   .play-btn {
-    font-size: 1.5rem;           /* smaller play button for mobile */
+    font-size: 1.5rem;           /* Smaller play button for mobile since viewers will be using their finger. */
   }
 
   .video-title {
-    padding: 6px;                /* slightly smaller padding inside video box */
-    font-size: 0.9rem;           /* smaller title text */
+    padding: 6px;                /* Slightly smaller padding inside video box. */
+    font-size: 0.9rem;           /* Smaller title text. */
   }
 }
 
@@ -480,7 +508,7 @@ button:hover {
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* ensures it's on top of content */
+    z-index: 100px; /* Ensures it's on top of content */
   }
 }
 
@@ -577,18 +605,18 @@ button:hover {
 
 .video-info .channel-name,
 .video-info .meta {
-  display: block;      /* forces each piece of info onto its own line */
-  font-size: 0.9rem;   /* slightly smaller than title */
-  color: #555;         /* subtle text color */
-  margin: 2px 0;       /* small spacing between lines */
+  display: block;      /* Forces each piece of info onto its own line. */
+  font-size: 0.9rem;   /* Slightly smaller than title. */
+  color: #555;         /* Subtle text color. */
+  margin: 2px 0;       /* Small spacing between lines. */
 }
 
 .new-section h3 {
   display: flex;
-  align-items: center;  /* vertically center icon and name */
-  gap: 8px;             /* space between icon and name */
-  border-bottom: 2px solid #333; /* line under heading */
-  padding-bottom: 4px;  /* space between text and line */
+  align-items: center;  /* Vertically centered icon and name to look neat and professional. */
+  gap: 8px;             /* Space between icon and name. */
+  border-bottom: 2px solid #333; /* Line under heading. */
+  padding-bottom: 4px;  /* Space between text and line. */
 }
 
 .new-section p {
@@ -597,8 +625,8 @@ button:hover {
 
 .description h3 {
   display: flex;
-  align-items: center;  /* vertically center icon and name */
-  gap: 8px;             /* space between icon and name */
+  align-items: center;  /* Vertically center icon and name. */
+  gap: 8px;             /* Creates space between icon and name so it wouldn't feel claustrophobic. */
   margin-bottom: 10px;
   border-bottom: 2px solid #ccc;
   padding-bottom: 5px;
@@ -610,8 +638,8 @@ button:hover {
 
 .lyrics h3 {
   display: flex;
-  align-items: center;  /* vertically center icon and name */
-  gap: 8px;             /* space between icon and name */
+  align-items: center;  
+  gap: 8px;             
   
 }
 
@@ -620,27 +648,33 @@ button:hover {
 }
 
 .media-player {
-  position: relative; /* needed for overlay positioning */
+  position: relative; /* Needed for overlay positioning. */
 }
 
 .video-time-overlay {
   position: absolute;
-  top: 8px;          /* distance from top of video */
-  left: 8px;         /* distance from left of video */
-  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent background */
+  top: 8px;          /* Distance from the top of video so it would look natural and blend seamlessly.*/
+  left: 8px;         /* Distance from left of video. */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background to not make it stand out too much and natural, something the viewers won't actively notice, but will definitely appreciate it when they do. */
   color: white;
   padding: 2px 6px;
   font-size: 0.85rem;
   border-radius: 4px;
-  z-index: 10;       /* ensure it's on top of video */
-  pointer-events: none; /* so clicks pass through */
+  z-index: 10;       /* Ensures it's on top of the video. */
+  pointer-events: none; /* So clicks pass through and would work. */
 }
 
 .recommendations a {
-  color: #9f2424;       /* text color */
-  text-decoration: none; /* remove underline */
+  color: #9f2424;       /* Text color, red to match with the slightly pinkish tone of the control buttons that contrast well with the dark icons, helping signal that they are interactable and important. I chose this red and pink as well to match the heart and would go well with most videos and their colour palettes, especially music videos, since they tend to use bright colours like red and green. */
+  text-decoration: none; /* Removes underline */
 }
 
 .recommendations a:hover {
-  text-decoration: underline; /* underline on hover */
+  text-decoration: underline; /* Underline on hover to make it seem more interactable and signalling that it is a link. */
+}
+
+/* Making the scrollbar thinner so that it looks more seamless and would pin more attention into the content of the site instead. */
+* {
+  scrollbar-width: thin;            /* "auto" or "thin" */
+  scrollbar-color: #888 #f1f1f1;    /* thumb color | track color */
 }

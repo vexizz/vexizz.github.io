@@ -24,6 +24,8 @@ function updateProgressBar() {
 }
 // Add other functionalities here
 
+
+// The Mute and Unmute Logic
 const MuteUnmuteBtn = document.querySelector("#mute-unmute-btn");
 console.log(MuteUnmuteBtn);
 
@@ -42,7 +44,6 @@ function toggleAudio() {
 }
 
 // Speed up Button
-
 const FastForwardBtn = document.querySelector("#fast-forward-btn");
 console.log(FastForwardBtn);
 
@@ -80,10 +81,11 @@ window.addEventListener("mousemove", (e) => {
 });
 
 video.addEventListener("ended", () => {
-  // change play button to replay icon
+  // Change play button to replay icon when video ends
   playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/replay.png";
 });
 
+// Fullscreen
 const FullscreenButton = document.querySelector("#fullscreen-button");
 console.log(FullscreenButton);
 
@@ -97,6 +99,7 @@ function toggleFullscreen() {
   }
 }
 
+// The Heart Button
 const heartButton = document.querySelector("#heart-button");
 console.log(heartButton);
 
@@ -110,6 +113,7 @@ function updateLikes() {
   likesContainer.textContent = likes;
 }
 
+// Skipping to Certain Timepoint Button
 const step1Button = document.querySelector("#step1-button");
 console.log(step1Button);
 
@@ -128,28 +132,31 @@ function gotoStep2() {
   video.currentTime = 43.0;
 }
 
-function addComment() {
+// Comments
+// Purpose: Adds new user-generated comments dynamically to the page. Contextual Rationale: Interactivity is central to media-sharing platforms. By enabling comments to be appended live, users feel a sense of immediacy and agency. This is consistent with the affordance of modern web apps: feedback must be quick, visible, and continuous.
+// The comment feature balances functionality and style. Functionally, it allows users to interact. Stylistically, it integrates with the rest of the minimalist player design. The inclusion of usernames, even static ones like "User123", suggests future scalability (e.g., user login integration).
+function addComment() {      
   const commentsContainer = document.getElementById('comments');
   const commentInput = document.getElementById('comment-input');
   const text = commentInput.value.trim();
 
-  if (text === '') return; // don't add empty comments
+  if (text === '') return; // Don't add empty comments. Design Influence: Instead of requiring a page reload, it immediately uploads the comments as soon as you hit "Post". This decision was informed by the importance of responsiveness in media culture, where users expect seamless updates and fast responses, especially nowadays in the digital culture. 
 
-  // Create a new comment div
+  // Create a new comment div // External Inspiration: Implementation is conceptually based on tutorials from YouTube as well as Pinterest, adapted with custom styling to fit the theme of the project. 
   const comment = document.createElement('div');
   comment.classList.add('comment');
 
   // Create a username element
   const username = document.createElement('div');
   username.classList.add('username');
-  username.textContent = 'User123'; // You can make this dynamic later
+  username.textContent = 'User123'; 
 
-  // Create the text element
+  // Creating the text element
   const commentText = document.createElement('div');
   commentText.classList.add('comment-text');
   commentText.textContent = text;
 
-  // Append username and text to comment div
+  // Append username and text to comment div. 
   comment.appendChild(username);
   comment.appendChild(commentText);
 
@@ -163,6 +170,7 @@ function addComment() {
   commentsContainer.scrollTop = commentsContainer.scrollHeight;
 }
 
+// The Current Time Overlay at the Top of the Video
 const currentTimeEl = document.getElementById("current-time");
 const totalTimeEl = document.getElementById("total-time");
 
