@@ -81,7 +81,7 @@ nav a {
 
 /* Highlight on hover to make it seem more clickable and interactable! */
 a:hover {
-  background-color: rgba(102, 102, 102, 0.25);
+  background-color: rgba(189, 105, 161, 0.25);
 }
 
 /* Media player styling */
