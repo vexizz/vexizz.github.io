@@ -682,3 +682,10 @@ button:hover {
 #comment-input {
   color: black;  /* makes typed text black */
 }
+
+header {
+  background-color: #b53e6e; /* dark pink */
+  color: white;              /* makes the text readable */
+  padding: 20px;             /* adds some space inside */
+  text-align: center;        /* centers your title */
+}
