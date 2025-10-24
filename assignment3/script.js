@@ -101,11 +101,11 @@ function animate() {
 
 container.addEventListener(
     "wheel",
-    (e) => {
+    (e) => { /* This detects when the user scrolls with the mouse, and we prevent the default scroll behaviour to make sure our custom scroll logic takes over, and doesn't clash with our mobile settings from before.*/
         e.preventDefault();
         isClickMove = false;
 
-        let delta;
+        let delta; /* We'll update the scroll amount using Delta Y which represents how much the user has scrolled, and control the scroll speed by limiting the velocity.*/
         delta = e.deltaY;
 
         const scrollVelocity = Math.min(Math.max(delta * 0.5, -20), 20);
@@ -118,43 +118,43 @@ container.addEventListener(
     { passive: false }
 );
 
-lettouchStartY = 0;
+lettouchStartY = 0; /* The touch start event detects when the user begins a swipe.*/
 container.addEventListener("touchstart", (e) => {
-    if(isHorizontal) {
+    if(isHorizontal) { 
         touchStartY = e.touch[0].clientY;
     }
 });
 
-container.addEventListener("touchmove", (e) => {
+container.addEventListener("touchmove", (e) => { /* The touch movement will handle the swipe motion.*/
     if (isHorizontal) {
         const touchY = e.touches[0].clientY;
         const deltaY = touchStartY - touchY;
 
         const delta = deltaY;
-        const scrollVelocity = Math.min(Math.max(delta * 0.5, -20,), 20);
+        const scrollVelocity = Math.min(Math.max(delta * 0.5, -20,), 20); /* We'll also adjust the scroll velocity and keep it not too fast, nor too slow, and just consistently in a range so that it stays professional and kept, similar to how we did with the mouse feel.*/
 
-        targetTranslate = Math.min(
+        targetTranslate = Math.min( /* To ensure smooth interaction and prevent default touch behaviours like the annoying screen bouncing, we will call prevent default function inside the event.*/
             Math.max(targetTranslate - scrollVelocity, -maxTranslate),
             0
         );
 
         touchStartY = touchY;
-        e.preventDefault();
+        e.preventDefault(); /* With these event listeners in place, the minimap will respond smoothly to both mouse scrolls and touch swipes, creating a seamless experience across devices no matter which and what system.*/
     }
   }, 
   {passive: false}
 );
 
-itemElements.forEach((item, index) => {
-    item.addEventListener("click", () => {
+itemElements.forEach((item, index) => { /* This is adding interactivity to the minimap items and making sure everything stays responsive.*/
+    item.addEventListener("click", () => { /* First is looping through each minimap item, and adding a click event listener. When clicked, it will adjust the target to center the selected item within the indicator to make it feel more "snappy", and ready to be scrolled through/clicked again.*/
         isClickMove = true;
         targetTranslate = -index * dimensions.itemSize + (dimensions.indicatorSize -dimensions.itemSize) / 2;
 
-    targetTranslate = Math.max(Math.min(targetTranslate, 0), -maxTranslate);
+    targetTranslate = Math.max(Math.min(targetTranslate, 0), -maxTranslate); /* We'll clamp target translate to ensure the minimap doesn't scroll beyond its limit, keeping the movement smooth and controlled, professional and seamlessly intentional.*/
   });
 });
 
-window.addEventListener("resize", () => {
+window.addEventListener("resize", () => { /* This handles scren size changes, such as if a window is resized or such. We also recalculate the screen size and adjust the scroll distance accordingly automatically to make sure the minimap doesn't exceed its boundaries.*/
     dimensions = updateDimensions();
     const newMaxTranslate = dimensions.containerSize - dimensions.indicatorSize;
 
@@ -173,4 +173,8 @@ menuButton.addEventListener("click", () => {
 
 itemImages[0].style.opacity = activeItemOpacity;
 updatePreviewImage(0);
-animate();
+animate(); /* This will kickstart the smooth scrolling and the interaction loop.*/
+
+/* In implementing this prototype within a broader project, one potential challenge would be maintaining an effective balance between interactivity and clarity. Since the minimap depends heavily on scrolling, hovering, and clicking for navigation, there’s a risk that too many interactive elements could overwhelm users or distract from the artwork itself. Ensuring that these features remain intuitive and enhance rather than complicate the experience will be key as the design evolves.
+
+Despite this, the prototype shows strong potential for future use, especially as a subpage to my digital portfolio's gallery, where the main focus will be a lot of my work. Its seamless scrolling, smooth transitions, and responsive behavior already create a professional, gallery-like atmosphere that draws focus to the content. The concept demonstrates how motion and interaction can strengthen user engagement and immersion—qualities that can be expanded into larger projects, such as an interactive portfolio or a promotional game website, while still preserving the minimalist aesthetic inspired by art museums.*/
