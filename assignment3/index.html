@@ -4,13 +4,17 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="reset.css" />
+        <!-- Context: It is a minimap, like a digital art gallery prototype for all my illustrations, and it will be a subpage of my portfolio. My main action is scroll, but also mainly hover and click.
+        Design intention: Provide immediate visual feedback in realtime as users scroll through seamlessly, and being able to smoothly navigate through each section by either scrolling or clicking for faster navigation. 
+        This is meant to explore how scrolling can enhance engagement and draw attention in web-based galleries or portfolios, and also how smooth, interactive animation and simple effects like darkening while hovering over an interactable element can help it feel more immersive, and professionally well done.
+        I focused on making clean animations, and being a fully functionable minimap. You can navigate it by scrolling, and can also switch images just by clicking on them. It works on mobile devices too. I had originally planned on making a promotional game website with a similar minimap function, but realized that it may be out of scope without libraries, and I should ought to be working on my portfolio as well. So in order to experiment while leading up to that, I decided to venture more towards this simplistic yet professionally minimalistic style, bringing more attention to the content itself, like how art museums are designed.-->
+        <link rel="stylesheet" href="reset.css" /> <!-- Resetting basic styles for consistent cross-browser display */ -->
         <link rel="stylesheet" href="style.css" />
         <script src="script.js" defer></script>
     </head>
     <body>
-        <div class="container">
-            <nav>
+        <div class="container"> <!-- I start with a main container that will wrap everything on the page. */ -->
+            <nav> <!-- To avoid an empty look, I'll add a simple navigation bar with the information needed in my subpage, essentially my name, the title of the page, and the button to return to the main page.*/ -->
                 <p class="site-title">Jacqueline</p>
 
                 <div class="site-info">
@@ -21,11 +25,11 @@
                 <p id="menu-button">Menu</p>
             </nav>
 
-            <div class="img-preview">
+            <div class="img-preview"> <!-- This is the section to display the image preview. I am classifying this as a class so I can edit it to my aesthetics later on, and to help make styling much more simpler. */ -->
                 <img src="assets/image1.png" alt="" />
             </div>
 
-            <div class="minimap">
+            <div class="minimap"> 
                 <div class="indicator"></div>
                 <div class="items">
                     <div class="item"><img src="assets/image1.png" alt=""></div>

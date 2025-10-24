@@ -171,3 +171,7 @@ nav {
   text-decoration: underline; /* underline text */
 }
 
+.item:hover img {
+    filter: brightness(60%); /* 60% brightness darkens image */
+    opacity: 0.9; /* slight fade for smoother effect */
+}
