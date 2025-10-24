@@ -5,22 +5,22 @@
 }
 
 body {
-    font-family:'Courier New', Courier, monospace;
-    background-color: #0d0d0d;
+    font-family:'Courier New', Courier, monospace;     /* I chose 'Courier New', Courier, monospace as the primary typeface for my minimap interface. This font evokes a utilitarian, digital aesthetic that complements the idea of a technical or coded environment, aligning with the concept of a "digital art gallery" or virtual minimap. The virtuality of this is enhanced even more by being able to scroll and seamlessly navigate and click through each image, rather than the traditional sense in where you simply look around. It is interactable and scrollable; a feature that only the digital space can provide, unlike reality. Its fixed-width structure visually references old computer interfaces, aligning with my portfolio’s slightly gaming tone and visual horror narratives, since all my artwork here have been involved in designing for video games and includes usages of lots of dark colour like black and red.  In a gallery context, this monospaced font enhances legibility and neutrality, ensuring that the interface doesn’t compete visually with the artwork itself. It functions as a quiet, reliable system font, much like the unobtrusive labeling systems used in physical galleries or technical displays.  The consistency in spacing also creates a structured rhythm when paired with scrolling and hover interactions, subtly reinforcing the idea of precision and control in digital environments. I wanted to reflect how even simple typographic choices can support usability and reinforce the identity of a minimal, code-like aesthetic, reminiscent of grids, catalogues, or databases that categorize artworks. */
+    background-color: #0d0d0d; /* The chosen color palette — primarily black (#0d0d0d), and text being white (#ffffff), and a muted red gradient for the word "Portfolio" (#000000 → #760808) was intentionally selected to complement the context of scrolling within a digital art gallery environment.  The black background establishes a cinematic and immersive setting, similar to how physical galleries often use neutral lighting and dark walls to draw focus toward illuminated artworks. This aligns with my goal of creating a “scrollable exhibition space” where each artwork appears to emerge from darkness as the user navigates.  White text provides strong contrast and ensures readability, maintaining visual clarity across various screen sizes. This contrast also supports accessibility by enhancing legibility for continuous scrolling, an essential usability consideration in an interaction that emphasizes fluid motion and sustained engagement. */
 }
 
-img {
-    width: 100%;
+img { 
+    width: 100%; /*I have set the images to their original aspect ratio since it IS an art gallery/minimap, and thus, their original resolution must be maintained. */
     height: 100%;
     object-fit: cover;
-    transition: opacity 0.2s;
-    user-select: none;
-}
+    transition: opacity 0.2s; /*I added a smooth opacity transition to show the active item, further enhancing the immersion of the scroll interaction and setting its tone as a digital minimap. */
+    user-select: none; /*To prevent any accidental image selection, and making it as user-friendly as possible, since in the context of the art gallery minimap, anyone could be visiting my portfolio and I would like it to be as user-friendly, and consistently pleasing to the eye, I have disabled user selection on images.*/
+} 
 
 p {
-    font-size: 14px;
+    font-size: 14px; /*I styled the paragraphs with a slightly bold font weight to contrast more from the dark background and give it a heavier typish retro feel, one would typically get from visual video games. */
     font-weight: 600;
-    -webkit-font-smoothing: anti-aliased;
+    -webkit-font-smoothing: antialiased; /*I put anti-aliasing to smooth out the text appearance on different systems, since this will be public and open to many users, so all kinds of people would be viewing.*/
     -moz-osx-font-smoothing: grayscale;
     user-select: none;
 }
@@ -29,18 +29,18 @@ p {
     position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /*I hid the overflow to prevent any scroll bars from appearing.  Since the minimap already functions as the main scrolling interaction within the prototype, having visible browser scroll bars would disrupt the clean, immersive experience I'm designing. By hiding the overflow, I maintain a controlled environment where scrolling is restricted to specific, intentional areas, such as the minimap, rather than the entire page. This approach also supports the concept of a curated digital gallery, where the viewer’s navigation is guided smoothly and purposefully, mimicking the feeling of moving through a gallery rather than a web page. It ensures the visual composition stays minimal, uncluttered, and aligned with the professional tone of an art portfolio interface.*/
     background-color: transparent;
-    color: #fff;                   /* default text color */
+    color: #fff;                   /* Default text color */
 }
 
 nav {
-    position: fixed;
+    position: fixed; /* I fixed it to the top of the screen so it stays visible when scrolling, and it stretches across the full viewport with some padding for spacing.*/
     top: 0;
     left: 0;
     width: 100vw;
     padding: 1.5em;
-    display: flex;
+    display: flex; /* I used flex box to space out the elements evenly across the left and right, rather than relying on specific measurements, which will not make it flexible for many different users of different systems. That is crucial when designing a public navigation for a minimap, since you cannot predict each audience.*/
     justify-content: space-between;
     align-items: center;
 }
@@ -51,15 +51,15 @@ nav {
     top: 50%;
     display: flex;
     gap: 4px;
-    background: linear-gradient(90deg, #00000000, #760808);
+    background: linear-gradient(90deg, #00000000, #760808); /*  The subtle red gradient (#000000 → #760808) serves as an accent to break the monochrome palette and guide user attention. Red was chosen for its association with passion, energy, and creative intensity, but it’s muted enough not to overwhelm. Its gradient effect creates a sense of directional flow, visually reinforcing the motion of scrolling and drawing the eye horizontally, echoing the linear movement users make as they navigate through the minimap. This combination of dark grounding tones and vibrant accent color also references the minimalist design language of professional portfolios and art spaces, where the interface recedes to highlight the content. The color decisions were made not purely for aesthetics, but to strengthen the experiential connection between the user and the act of scrolling itself — making it feel smooth, deliberate, and contemplative, much like walking through an art exhibition.  */
 }
 
 
 .site-info p span {
-    color: #9a9994;
+    color: #9a9994; /* I've applied a muted gray colour to part of the text to give it a subtle contrast, especialy to the red gradient, and also a subtle colour change towards the minimalistic colour palette. I refrained from having the background be complex and kept it minimalistic as most of my images had many different colours and were of complex styles that all varied from one another. As mentioned before, I would like the focus to be more on the images.*/
 }
 
-.img-preview {
+.img-preview { /* I style the image preview section while centering it both vertically and horizontally with a fixed width and height to ensure it looks good across different sizes, especially while being scrolled htrough in real-time.*/
     position: absolute;
     top: 50%;
     left: 50%;
@@ -69,7 +69,7 @@ nav {
     overflow: hidden;
 }
 
-.img-preview img {
+.img-preview img { /* The image inside the preview is also centered and scales to fit the container without distortion.*/
     position: absolute;
     top: 50%;
     left: 50%;
@@ -79,7 +79,7 @@ nav {
     object-fit: contain;
 }
 
-.minimap {
+.minimap { /* The minimap is positioned on the right side of the screen, closer to where we hold our mouse at: Our right side. This makes the scrolling feel more immersive and that you are actively dragging through it. */
     position: absolute;
     top: 50%;
     right: 8em;
@@ -96,7 +96,7 @@ nav {
     z-index: 2;
 }
 
-.items {
+.items { /* The minimap items themselves are stacked vertically with no gaps, and each thumbnail is clickable for more impatient viewers or those who have come looking for a specific art to view.*/
     position: relative;
     width: 100%;
     height: 100%;
@@ -113,7 +113,7 @@ nav {
     cursor: pointer;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px) { /* Finally, for the responsive design, I've added media queries for screens smaller than 900 pixels, specifically targeting phones. On mobile devices, I have disabled default scrolling in order to prevent confusion and also because how laggy most mobile browsers deal with scrolling. I think it would make it unprofessional instead, and added my own scrolling and touch actions to allow for custom smoother swipe gestures. */
     body {
         overflow: hidden;
         touch-action: none;
@@ -129,7 +129,7 @@ nav {
         transform: translateX(-50%);
     }
 
-    .minimap {
+    .minimap { /* To make up for the small screen and lack of space, I moved the minimap to the bottom of the screen instead, where our thumb usually hovers at when idle, and switches to a horizontal layout for better usability. This makes scrolling through easier since it's closer to our thumb. */
         top: auto;
         right: auto;
         bottom: 5em;
@@ -139,7 +139,7 @@ nav {
         touch-action: none;
     }
 
-    .indicator {
+    .indicator { /* The indicator and items are adjusted to match the horizontal layout, ensuring everything functions smoothly on mobile devices.*/
         top: 0;
         left: 0;
         width: 60px;
@@ -166,12 +166,12 @@ nav {
     }
 }
 
-#menu-button {
+#menu-button { /* I added in hand cursors for each interactable item, including the images themselves in order to show that they are interactable. I want this to be as user-friendly as possible.*/
   cursor: pointer; /* show hand cursor */
-  text-decoration: underline; /* underline text */
+  text-decoration: underline; /* I underlined it in order to make it pop out from the other two items in the navigation bar, indicating that it is interactable. */
 }
 
 .item:hover img {
-    filter: brightness(60%); /* 60% brightness darkens image */
-    opacity: 0.9; /* slight fade for smoother effect */
+    filter: brightness(60%); /* 60% brightness darkens image when you hover over it, signalling you can click on it and also making it more imemrsive. */
+    opacity: 0.9; /* Slight fade for smoother effect */
 }
